@@ -20,18 +20,14 @@ class Solution{
           Node* removeDuplicates(Node * const head)
           {
               //Write your code here
-              if ( head ) {
-                  Node *last = head;
-                  for (Node *temp = head->next; temp ; temp = temp->next) {
-                      if ( last->data == temp->data ) {
-                          last->next = temp->next;
-                          delete(temp);
-                      } else {
-                          last = temp;
-                      }
-                  }
-              }
-              return head;
+            Node *curr = head;
+        while (curr && curr->next) {
+            while (curr->next && curr->data == curr->next->data) {
+                curr->next = curr->next->next;
+            }
+            curr = curr->next;
+        }
+        return head;
           }
           Node* insert(Node *head,int data)
           {
