@@ -27,7 +27,8 @@ string isValid(string s) {
         //diff = arr[i] - arr[l];
         if(arr[i] != arr[l]){
             count++;
-            
+            if((arr[i] - arr[l]) > 1)
+                return "NO";
         }
     }
     if(count > 1)
