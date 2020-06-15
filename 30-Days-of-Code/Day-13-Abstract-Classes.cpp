@@ -17,40 +17,24 @@ class Book{
         virtual void display()=0;
 
 };
-//Write MyBook class
+
+// Write your MyBook class here
 class MyBook : public Book {
-  public:
-    MyBook(
-        string t,
-        string a,
-        int p
-    ) :
-        Book(t,a),
-        price(p)
-    {
-        
+
+private:
+    int price;
+    
+public:
+    MyBook(string t,string a,int price):Book(t,a){
+        this->price = price;
     }
     
-    virtual
-    void
-    display(
-        void
-    ) override {
+    virtual void display(void) override {
         cout << "Title: " << title << endl;
         cout << "Author: " << author << endl;
         cout << "Price: " << price << endl;
     }
-    
-  private:
-    int price;
+
 };
+
 int main() {
-    string title,author;
-    int price;
-    getline(cin,title);
-    getline(cin,author);
-    cin>>price;
-    MyBook novel(title,author,price);
-    novel.display();
-    return 0;
-}
