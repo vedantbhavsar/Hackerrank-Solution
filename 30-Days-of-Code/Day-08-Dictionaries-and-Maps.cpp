@@ -8,30 +8,24 @@ using namespace std;
 
 
 int main() {
-    int N;
-    map<string, int> phone_book;
-    cin >> N;
-    
-    // Build phone book
-    for (size_t n = 0 ; n < N ; ++n) {
-        string name;
-        int number;
-        cin >> name >> number;
-        phone_book[name] = number;
-    }
-    
-    // Check for names
-    for (; !cin.eof() ;) {
-        string name;
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int n;
+    string name;
+    long num;
+    cin >> n;
+    map <string,int> pbook;
+    for (int i=0;i<n;i++)
+    {
         cin >> name;
-        
-        if ( name.empty() ) { break; }
-        auto position = phone_book.find(name);
-        if ( phone_book.end() != position ) {
-            cout << name << "=" << phone_book[name] << endl;
-        } else {
-            cout << "Not found" << endl;
-        }
+        cin >> num;
+        pbook[name] = num;
     }
+    while(cin>>name) 
+    {
+        if (pbook.find(name)!=pbook.end())
+            cout<<name<<"="<<pbook.find(name)->second<<endl;
+        else
+            cout<<"Not found"<<endl;
+    }   
     return 0;
 }
