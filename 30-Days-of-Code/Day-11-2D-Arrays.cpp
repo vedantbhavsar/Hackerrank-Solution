@@ -1,50 +1,36 @@
-#include <map>
-#include <set>
-#include <list>
-#include <cmath>
-#include <ctime>
-#include <deque>
-#include <queue>
-#include <stack>
-#include <string>
-#include <bitset>
-#include <cstdio>
-#include <limits>
-#include <vector>
-#include <climits>
-#include <cstring>
-#include <cstdlib>
-#include <fstream>
-#include <numeric>
-#include <sstream>
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
+
 using namespace std;
 
+int main()
+{
+    vector<vector<int>> arr(6);
+    for (int i = 0; i < 6; i++) {
+        arr[i].resize(6);
 
-int main(){
-    vector< vector<int> > arr(6,vector<int>(6));
-    for(int arr_i = 0;arr_i < 6;arr_i++){
-        for(int arr_j = 0;arr_j < 6;arr_j++){
-            cin >> arr[arr_i][arr_j];
+        for (int j = 0; j < 6; j++) {
+            cin >> arr[i][j];
         }
+
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    
-    int max = INT_MIN, sum = 0;
-    for(int arr_i = 0;arr_i < 4;arr_i++){
-        for(int arr_j = 0;arr_j < 4;arr_j++){
-            sum = arr[arr_i][arr_j];
-            sum += arr[arr_i][arr_j + 1];
-            sum += arr[arr_i][arr_j + 2];
-            sum += arr[arr_i + 1][arr_j + 1];
-            sum += arr[arr_i + 2][arr_j];
-            sum += arr[arr_i + 2][arr_j + 1];
-            sum += arr[arr_i + 2][arr_j + 2];
-            if ( sum > max ) {
-                max = sum;
-            }
-        }
-    }
-    cout << max;
+
+    int maxsum=-64;  
+    int hoursum;   
+    for(int i=0; i<4; i++)
+    {
+        for(int j=0; j<4; j++)
+        {
+            hoursum = arr[i+1][j+1];    
+            for(int k=0; k<3; k++)
+                {                   
+                    hoursum = hoursum + arr[i][j+k] + arr[i+2][j+k]; 
+                }             
+            if(hoursum > maxsum)         
+                maxsum = hoursum;       
+        }      
+    }     
+    cout << maxsum;
+
     return 0;
 }
