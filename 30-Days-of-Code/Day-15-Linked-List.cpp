@@ -17,39 +17,16 @@ class Solution{
       Node* insert(Node *head,int data)
       {
           //Complete this method
-           Node * newNode = new Node(data);
+          Node * newNode = new Node(data);
           Node * tail = head;
-          if ( !head ) { return newNode; }
+          if ( !head )
+            return newNode;
           
-          // Locate tail node
-          for (;tail->next; tail = tail->next);
+          while(tail->next != NULL)
+            tail = tail->next;
 
-          // Insert at end of list
           tail->next = newNode;
-          
           return head;
       }
 
       void display(Node *head)
-      {
-          Node *start=head;
-          while(start)
-          {
-              cout<<start->data<<" ";
-              start=start->next;
-          }
-      }
-};
-int main()
-{
-	Node* head=NULL;
-  	Solution mylist;
-    int T,data;
-    cin>>T;
-    while(T-->0){
-        cin>>data;
-        head=mylist.insert(head,data);
-    }	
-	mylist.display(head);
-		
-}
