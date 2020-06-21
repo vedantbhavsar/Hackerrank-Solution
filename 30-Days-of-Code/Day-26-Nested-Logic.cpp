@@ -16,17 +16,21 @@ int main() {
     if ( actual_yy > expected_yy ) {
         cout << 10000;
     } else if ( actual_yy == expected_yy ) {
+        
         if ( actual_mm > expected_mm ) {
             cout << ((actual_mm - expected_mm) * 500);
         } else if ( actual_mm == expected_mm ) {
+            
             if ( actual_dd > expected_dd ) {
                 cout << ((actual_dd - expected_dd) * 15);
             } else {
                 cout << 0;
             }
+            
         } else {
             cout << 0;
         }
+        
     } else {
         cout << 0;
     }
