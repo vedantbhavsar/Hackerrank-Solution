@@ -35,29 +35,31 @@ class Solution{
         }
 
 	void levelOrder(Node * root){
-      //Write your code here
+
+	//Write your code here
         if(!root)
             return;
 
         cout << root->data << " ";
 
         if(root->left)
-            _q.push(root->left);
+            q.push(root->left);
 
         if(root->right)
-            _q.push(root->right);
+            q.push(root->right);
 
-        Node *next = _q.front();
+        Node *next = q.front();
         if(next)
-            _q.pop();
+            q.pop();
 
         levelOrder(next);
   
 	}
     private:
-        queue<Node *> _q;
+        queue<Node *> q;
 
 };//End of Solution
+
 int main(){
     Solution myTree;
     Node* root=NULL;
