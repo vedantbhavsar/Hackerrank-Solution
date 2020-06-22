@@ -7,7 +7,16 @@
 
 function modifyArray(nums) {
 
-    return nums.map( n => n = (n % 2 == 0) ? n * 2: n * 3);
+    for(let i=0; i<nums.length; i++){
+
+        if(nums[i] % 2 == 0)
+            nums[i] = nums[i] * 2;
+
+        else if(nums[i] % 2 == 1)
+            nums[i] = nums[i] * 3;
+
+    }
+    return nums;
     
 }
 
