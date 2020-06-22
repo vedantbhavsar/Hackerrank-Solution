@@ -8,7 +8,7 @@ function getSecondLargest(nums) {
     
     // Complete the function
     let first;
-    let second = 0;
+    let second;
 
     if(nums[0] > nums[1]){
         first = nums[0];
