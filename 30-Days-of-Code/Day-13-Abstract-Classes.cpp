@@ -29,7 +29,7 @@ public:
         this->price = price;
     }
     
-    virtual void display(void) override {
+    virtual void display(){
         cout << "Title: " << title << endl;
         cout << "Author: " << author << endl;
         cout << "Price: " << price << endl;
